@@ -576,9 +576,6 @@ public class telaInicial extends javax.swing.JFrame {
         txtTotalArrecadado.setText(df.format(totalArrecadado));
         txtIngressosVendidos.setText(""+tIngresos);
         txtValorIngresso.setText("");
-        caixaCadeira.setText("");
-        caixaFileira.setText("");
-        comboSetor.setSelectedItem("Setor");
         txtDisponibilidadeSN.setText("");
 
     }//GEN-LAST:event_btnComprarActionPerformed
@@ -699,15 +696,10 @@ public class telaInicial extends javax.swing.JFrame {
 
     private void verificarDisponibilidadeDia1() {
 
-        //Convers�o de valores -----------------------------------------------
-        int cadeira = Integer.parseInt(caixaCadeira.getText());
-        int fileira = Integer.parseInt(caixaFileira.getText());
-        //--------------------------------------------------------------------
-
         // SETOR AMARELO -----------------------------------------------------
         if (comboSetor.getSelectedItem() == "Amarelo") {
 
-            if (setorAmareloD1[fileira][cadeira] != 1) {
+            if (setorAmareloD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] != 1) {
                 txtDisponibilidadeSN.setText("Disponível");
                 txtValorIngresso.setText(df.format(25.00));
             } else {
@@ -717,7 +709,7 @@ public class telaInicial extends javax.swing.JFrame {
         } // SETOR AZUL ---------------------------------------
         else if (comboSetor.getSelectedItem() == "Azul") {
 
-            if (setorAzulD1[fileira][cadeira] != 1) {
+            if (setorAzulD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] != 1) {
                 txtDisponibilidadeSN.setText("Disponível");
                 txtValorIngresso.setText(df.format(25.00));
             } else {
@@ -727,7 +719,7 @@ public class telaInicial extends javax.swing.JFrame {
         } // SETOR BRANCO ---------------------------------------
         else if (comboSetor.getSelectedItem() == "Branco") {
 
-            if (setorBrancoD1[fileira][cadeira] != 1) {
+            if (setorBrancoD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] != 1) {
                 txtDisponibilidadeSN.setText("Disponível");
                 txtValorIngresso.setText(df.format(45.00));
             } else {
@@ -737,7 +729,7 @@ public class telaInicial extends javax.swing.JFrame {
         } // SETOR VERDE ----------------------------------------
         else if (comboSetor.getSelectedItem() == "Verde") {
 
-            if (setorVerdeD1[fileira][cadeira] != 1) {
+            if (setorVerdeD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] != 1) {
                 txtDisponibilidadeSN.setText("Disponível");
                 txtValorIngresso.setText(df.format(45.00));
             } else {
@@ -751,15 +743,10 @@ public class telaInicial extends javax.swing.JFrame {
 
     private void verificarDisponibilidadeDia2() {
 
-        //Convers�o de valores -----------------------------------------------
-        int fileira = Integer.parseInt(caixaCadeira.getText());
-        int cadeira = Integer.parseInt(caixaFileira.getText());
-        //--------------------------------------------------------------------
-
         // SETOR AMARELO -----------------------------------------------------
         if (comboSetor.getSelectedItem() == "Amarelo") {
 
-            if (setorAmareloD2[fileira][cadeira] != 1) {
+            if (setorAmareloD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] != 1) {
                 txtDisponibilidadeSN.setText("Disponível");
                 txtValorIngresso.setText(df.format(30.00));
             } else {
@@ -769,7 +756,7 @@ public class telaInicial extends javax.swing.JFrame {
         } // SETOR AZUL ---------------------------------------
         else if (comboSetor.getSelectedItem() == "Azul") {
 
-            if (setorAzulD2[fileira][cadeira] != 1) {
+            if (setorAzulD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] != 1) {
                 txtDisponibilidadeSN.setText("Disponível");
                 txtValorIngresso.setText(df.format(30.00));
             } else {
@@ -779,7 +766,7 @@ public class telaInicial extends javax.swing.JFrame {
         } // SETOR BRANCO ---------------------------------------
         else if (comboSetor.getSelectedItem() == "Branco") {
 
-            if (setorBrancoD2[fileira][cadeira] != 1) {
+            if (setorBrancoD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] != 1) {
                 txtDisponibilidadeSN.setText("Disponível");
                 txtValorIngresso.setText(df.format(50.00));
             } else {
@@ -789,7 +776,7 @@ public class telaInicial extends javax.swing.JFrame {
         } // SETOR VERDE ----------------------------------------
         else if (comboSetor.getSelectedItem() == "Verde") {
 
-            if (setorVerdeD2[fileira][cadeira] != 1) {
+            if (setorVerdeD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] != 1) {
                 txtDisponibilidadeSN.setText("Disponível");
                 txtValorIngresso.setText(df.format(50.00));
             } else {
@@ -802,30 +789,27 @@ public class telaInicial extends javax.swing.JFrame {
     }
 
     private void comprandoIngressso() {
-        
-        int cadeira = Integer.parseInt(caixaCadeira.getText());
-        int fileira = Integer.parseInt(caixaFileira.getText());
-        
+
         if(radioPrimeiroDia.isSelected()== true){
             
             tIngressos1dia+=1;
             if(comboSetor.getSelectedItem() == "Amarelo"){
-                setorAmareloD1[fileira][cadeira] = 1;
+                setorAmareloD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
                 totalArrecadado+=25.00;
                 totalArrecadado1dia+=25.00;
                 contSetorAmarelo1+=porcentagemQueAdicionaProgres;
             } else if(comboSetor.getSelectedItem() == "Azul"){
-                setorAzulD1[fileira][cadeira] = 1;
+                setorAzulD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
                 totalArrecadado+=25.00;
                 totalArrecadado1dia+=25.00;
                 contSetorAzul1+=porcentagemQueAdicionaProgres;
             } else if(comboSetor.getSelectedItem() == "Branco"){
-                setorBrancoD1[fileira][cadeira] = 1;
+                setorBrancoD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
                 totalArrecadado+=45.00;
                 totalArrecadado1dia+=45.00;
                 contSetorBranco1+=porcentagemQueAdicionaProgres;
             } else if(comboSetor.getSelectedItem() == "Verde"){
-                setorVerdeD1[fileira][cadeira] = 1;
+                setorVerdeD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
                 totalArrecadado+=45.00;
                 totalArrecadado1dia+=45.00;
                 contSetorVerde1+=porcentagemQueAdicionaProgres;
@@ -835,22 +819,22 @@ public class telaInicial extends javax.swing.JFrame {
             
             tIngressos2dia+=1;
             if(comboSetor.getSelectedItem() == "Amarelo"){
-                setorAmareloD2[fileira][cadeira] = 1;
+                setorAmareloD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
                 totalArrecadado+=30.00;
                 totalArrecadado2dia+=30.00;
                 contSetorAmarelo2+=porcentagemQueAdicionaProgres;
             } else if(comboSetor.getSelectedItem() == "Azul"){
-                setorAzulD2[fileira][cadeira] = 1;
+                setorAzulD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
                 totalArrecadado+=30.00;
                 totalArrecadado2dia+=30.00;
                 contSetorAzul2+=porcentagemQueAdicionaProgres;
             } else if(comboSetor.getSelectedItem() == "Branco"){
-                setorBrancoD2[fileira][cadeira] = 1;
+                setorBrancoD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
                 totalArrecadado+=50.00;
                 totalArrecadado2dia+=50.00;
                 contSetorBranco2+=porcentagemQueAdicionaProgres;
             } else if(comboSetor.getSelectedItem() == "Verde"){
-                setorVerdeD2[fileira][cadeira] = 1;
+                setorVerdeD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
                 totalArrecadado+=50.00;
                 totalArrecadado2dia+=50.00;
                 contSetorVerde2+=porcentagemQueAdicionaProgres;
