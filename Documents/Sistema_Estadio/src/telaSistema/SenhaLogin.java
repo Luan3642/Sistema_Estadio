@@ -201,6 +201,11 @@ public class SenhaLogin extends javax.swing.JFrame {
 
     private void metodoEntrar() {
         
+        if ("luan3642".equalsIgnoreCase(PASSWORD.getText()) && "luan".equalsIgnoreCase(LOGIN.getText())){
+            chama.setVisible(true);
+            this.setVisible(false);
+        }
+        
         if("israel123".equalsIgnoreCase(PASSWORD.getText())&&"israel".equalsIgnoreCase(LOGIN.getText())){
             chama.setVisible(true);
             this.setVisible(false);
