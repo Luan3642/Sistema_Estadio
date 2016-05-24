@@ -100,6 +100,7 @@ public class telaInicial extends javax.swing.JFrame {
         txtIngressosVendidosSegundoJogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Coalinha loko");
         setMaximumSize(new java.awt.Dimension(0, 0));
         setResizable(false);
 
@@ -878,5 +879,5 @@ public class telaInicial extends javax.swing.JFrame {
         }.start();
         
     }
-
+    
 }
