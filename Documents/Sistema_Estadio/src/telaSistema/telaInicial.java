@@ -6,8 +6,6 @@ import javax.swing.JOptionPane;
 
 public class telaInicial extends javax.swing.JFrame {
     
-    //teste de conexão git
-    
     //Todos os arrays---------------------------------------------------
     //Dia do 1° jogo
     int setorAmareloD1[][] = new int[26][201];
@@ -100,7 +98,7 @@ public class telaInicial extends javax.swing.JFrame {
         txtIngressosVendidosSegundoJogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Coalinha loko");
+        setTitle("Estadio");
         setMaximumSize(new java.awt.Dimension(0, 0));
         setResizable(false);
 
@@ -553,7 +551,7 @@ public class telaInicial extends javax.swing.JFrame {
 
     //BOT�O COMPRAR INGRESSO --------------------------------------------------------------
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
-
+        
         //se estiver escrito dispon�vel então soma mais um na vari�vel totalIngresos e 
         //chama o metodo la embaixo
         //aparece se a compra foi efetivada ou n�o
@@ -566,8 +564,18 @@ public class telaInicial extends javax.swing.JFrame {
         }
 
         if(radioPrimeiroDia.isSelected()==true){
+            radioSegundoDia.setEnabled(true);
+            radioPrimeiroDia.setEnabled(true);
+            comboSetor.setEnabled(true);
+            caixaFileira.setEnabled(true);
+            caixaCadeira.setEnabled(true);
             atualizarBarradeProgresso1Dia(); 
         }else{
+            radioSegundoDia.setEnabled(true);
+            radioPrimeiroDia.setEnabled(true);
+            comboSetor.setEnabled(true);
+            caixaFileira.setEnabled(true);
+            caixaCadeira.setEnabled(true);
             atualizarBarradeProgresso2Dia();
         }
         
@@ -689,8 +697,18 @@ public class telaInicial extends javax.swing.JFrame {
             //SE TODOS OS CAMPOS ESTIVEREM PREENCHIDOES O PROGRAMA CAI AQUI...
             //SE PRIMEIRO JOGO FOR SELECIONADO ENTÃO EXECUTA METODO 'verificarDisponibilidadeDia1' SE NÃO 'verificarDisponibilidadeDia2'
             if (radioPrimeiroDia.isSelected() == true) {
+                radioSegundoDia.setEnabled(false);
+                radioPrimeiroDia.setEnabled(false);
+                comboSetor.setEnabled(false);
+                caixaFileira.setEnabled(false);
+                caixaCadeira.setEnabled(false);
                 verificarDisponibilidadeDia1();
             } else {
+                radioSegundoDia.setEnabled(false);
+                radioPrimeiroDia.setEnabled(false);
+                comboSetor.setEnabled(false);
+                caixaFileira.setEnabled(false);
+                caixaCadeira.setEnabled(false);
                 verificarDisponibilidadeDia2();
             }
         }
