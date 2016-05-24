@@ -551,8 +551,8 @@ public class telaInicial extends javax.swing.JFrame {
     //BOT�O COMPRAR INGRESSO --------------------------------------------------------------
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
 
-        //se estiver escrito dispon�vel ent�o soma mais um na vari�vel totalIngresos e 
-        //chama o metodo l� embaixo
+        //se estiver escrito dispon�vel então soma mais um na vari�vel totalIngresos e 
+        //chama o metodo la embaixo
         //aparece se a compra foi efetivada ou n�o
         if("Disponível".equals(txtDisponibilidadeSN.getText())){
             tIngresos+=1;            
