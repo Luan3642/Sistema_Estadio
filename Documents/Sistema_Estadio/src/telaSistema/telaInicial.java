@@ -557,7 +557,7 @@ public class telaInicial extends javax.swing.JFrame {
         if("Disponível".equals(txtDisponibilidadeSN.getText())){
             tIngresos+=1;            
             comprandoIngressso();
-            JOptionPane.showMessageDialog(null,"Compra efetivada com Sucesso");
+            JOptionPane.showConfirmDialog(null,"Ingresso---------------\nCadeira: "+caixaCadeira.getText()+"\nFileira: "+caixaFileira.getText()+"\nSetor: "+comboSetor.getSelectedItem());
         }else{
             JOptionPane.showMessageDialog(null,"O lugar tem que estar Disponível");
         }
@@ -684,7 +684,7 @@ public class telaInicial extends javax.swing.JFrame {
             txtDisponibilidadeSN.setText("Fileira não existe");
         } else {
             //SE TODOS OS CAMPOS ESTIVEREM PREENCHIDOES O PROGRAMA CAI AQUI...
-            //SE PRIMEIRO JOGO FOR SELECIONADO ENT�O EXECUTA METODO 'verificarDisponibilidadeDia1' SE N�O 'verificarDisponibilidadeDia2'
+            //SE PRIMEIRO JOGO FOR SELECIONADO ENTÃO EXECUTA METODO 'verificarDisponibilidadeDia1' SE NÃO 'verificarDisponibilidadeDia2'
             if (radioPrimeiroDia.isSelected() == true) {
                 verificarDisponibilidadeDia1();
             } else {
