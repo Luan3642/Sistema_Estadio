@@ -99,7 +99,6 @@ public class telaInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Estadio");
-        setMaximumSize(new java.awt.Dimension(0, 0));
         setResizable(false);
 
         painelPrincipal.setOpaque(false);
@@ -701,24 +700,22 @@ public class telaInicial extends javax.swing.JFrame {
             txtDisponibilidadeSN.setText("Cadeira não existe");
         } else if (Integer.parseInt(caixaFileira.getText()) >= 26 || Integer.parseInt(caixaFileira.getText()) <= 0) {
             txtDisponibilidadeSN.setText("Fileira não existe");
+        } else //SE TODOS OS CAMPOS ESTIVEREM PREENCHIDOES O PROGRAMA CAI AQUI...
+        //SE PRIMEIRO JOGO FOR SELECIONADO ENTÃO EXECUTA METODO 'verificarDisponibilidadeDia1' SE NÃO 'verificarDisponibilidadeDia2'
+        if (radioPrimeiroDia.isSelected() == true) {
+            radioSegundoDia.setEnabled(false);
+            radioPrimeiroDia.setEnabled(false);
+            comboSetor.setEnabled(false);
+            caixaFileira.setEnabled(false);
+            caixaCadeira.setEnabled(false);
+            verificarDisponibilidadeDia1();
         } else {
-            //SE TODOS OS CAMPOS ESTIVEREM PREENCHIDOES O PROGRAMA CAI AQUI...
-            //SE PRIMEIRO JOGO FOR SELECIONADO ENTÃO EXECUTA METODO 'verificarDisponibilidadeDia1' SE NÃO 'verificarDisponibilidadeDia2'
-            if (radioPrimeiroDia.isSelected() == true) {
-                radioSegundoDia.setEnabled(false);
-                radioPrimeiroDia.setEnabled(false);
-                comboSetor.setEnabled(false);
-                caixaFileira.setEnabled(false);
-                caixaCadeira.setEnabled(false);
-                verificarDisponibilidadeDia1();
-            } else {
-                radioSegundoDia.setEnabled(false);
-                radioPrimeiroDia.setEnabled(false);
-                comboSetor.setEnabled(false);
-                caixaFileira.setEnabled(false);
-                caixaCadeira.setEnabled(false);
-                verificarDisponibilidadeDia2();
-            }
+            radioSegundoDia.setEnabled(false);
+            radioPrimeiroDia.setEnabled(false);
+            comboSetor.setEnabled(false);
+            caixaFileira.setEnabled(false);
+            caixaCadeira.setEnabled(false);
+            verificarDisponibilidadeDia2();
         }
 
     }
@@ -907,28 +904,143 @@ public class telaInicial extends javax.swing.JFrame {
     }
 
     public void verificacaoCadeiraProximaGramado() {
-        
+
         caixaTxtProxima.setText("");
-        if (radioPrimeiroDia.isSelected() == true) {//selecionado primeiro dia
-            if (comboSetor.getSelectedItem() == "Amarelo") {//selecionado combo amarelo
+        if (radioPrimeiroDia.isSelected() == true) {
+            if (comboSetor.getSelectedItem() == "Amarelo") {
                 int contfileira = 25, contcadeira = 200;
-                for (int x = 0; x < 5; x++) {
-                    if (setorAmareloD1[contfileira][contcadeira] == 0) {//verifica se o lugar está vazio
-                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira " 
+                int contvezes = 0;
+                while (contvezes < 5) {
+                    if (setorAmareloD1[contfileira][contcadeira] == 0) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
                         contcadeira--;
-                    }else if (setorAmareloD1[contfileira][contcadeira] == 1) {
+                        contvezes++;
+                    } else if (setorAmareloD1[contfileira][contcadeira] == 1) {
                         contcadeira--;
-                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira " 
-                                + contfileira + " Cadeira " + contcadeira + "\n");
                     }
                     if (contcadeira == 0) {
-                    contfileira--;
+                        contfileira--;
+                    }
+                }
+            } else if (comboSetor.getSelectedItem() == "Azul") {
+                int contfileira = 25, contcadeira = 200;
+                int contvezes = 0;
+                while (contvezes < 5) {
+                    if (setorAzulD1[contfileira][contcadeira] == 0) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
+                                + contfileira + " Cadeira " + contcadeira + "\n");
+                        contcadeira--;
+                        contvezes++;
+                    } else if (setorAzulD1[contfileira][contcadeira] == 1) {
+                        contcadeira--;
+                    }
+                    if (contcadeira == 0) {
+                        contfileira--;
+                    }
+                }
+            } else if (comboSetor.getSelectedItem() == "Branco") {
+                int contfileira = 25, contcadeira = 200;
+                int contvezes = 0;
+                while (contvezes < 5) {
+                    if (setorBrancoD1[contfileira][contcadeira] == 0) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
+                                + contfileira + " Cadeira " + contcadeira + "\n");
+                        contcadeira--;
+                        contvezes++;
+                    } else if (setorBrancoD1[contfileira][contcadeira] == 1) {
+                        contcadeira--;
+                    }
+                    if (contcadeira == 0) {
+                        contfileira--;
+                    }
+                }
+            } else if (comboSetor.getSelectedItem() == "Verde") {
+                int contfileira = 25, contcadeira = 200;
+                int contvezes = 0;
+                while (contvezes < 5) {
+                    if (setorVerdeD1[contfileira][contcadeira] == 0) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
+                                + contfileira + " Cadeira " + contcadeira + "\n");
+                        contcadeira--;
+                        contvezes++;
+                    } else if (setorVerdeD1[contfileira][contcadeira] == 1) {
+                        contcadeira--;
+                    }
+                    if (contcadeira == 0) {
+                        contfileira--;
                     }
                 }
             }
-        } else if (radioPrimeiroDia.isSelected() == true) {
 
+        } else if (radioSegundoDia.isSelected() == true) {
+            if (comboSetor.getSelectedItem() == "Amarelo") {
+                int contfileira = 25, contcadeira = 200;
+                int contvezes = 0;
+                while (contvezes < 5) {
+                    if (setorAmareloD2[contfileira][contcadeira] == 0) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
+                                + contfileira + " Cadeira " + contcadeira + "\n");
+                        contcadeira--;
+                        contvezes++;
+                    } else if (setorAmareloD2[contfileira][contcadeira] == 1) {
+                        contcadeira--;
+                    }
+                    if (contcadeira == 0) {
+                        contfileira--;
+                    }
+                }
+            } else if (comboSetor.getSelectedItem() == "Azul") {
+                int contfileira = 25, contcadeira = 200;
+                int contvezes = 0;
+                while (contvezes < 5) {
+                    if (setorAzulD2[contfileira][contcadeira] == 0) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
+                                + contfileira + " Cadeira " + contcadeira + "\n");
+                        contcadeira--;
+                        contvezes++;
+                    } else if (setorAzulD2[contfileira][contcadeira] == 1) {
+                        contcadeira--;
+                    }
+                    if (contcadeira == 0) {
+                        contfileira--;
+                    }
+                }
+            } else if (comboSetor.getSelectedItem() == "Branco") {
+                int contfileira = 25, contcadeira = 200;
+                int contvezes = 0;
+                while (contvezes < 5) {
+                    if (setorBrancoD2[contfileira][contcadeira] == 0) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
+                                + contfileira + " Cadeira " + contcadeira + "\n");
+                        contcadeira--;
+                        contvezes++;
+                    } else if (setorBrancoD2[contfileira][contcadeira] == 1) {
+                        contcadeira--;
+                    }
+                    if (contcadeira == 0) {
+                        contfileira--;
+                    }
+                }
+            } else if (comboSetor.getSelectedItem() == "Verde") {
+                int contfileira = 25, contcadeira = 200;
+                int contvezes = 0;
+                while (contvezes < 5) {
+                    if (setorVerdeD2[contfileira][contcadeira] == 0) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
+                                + contfileira + " Cadeira " + contcadeira + "\n");
+                        contcadeira--;
+                        contvezes++;
+                    } else if (setorVerdeD2[contfileira][contcadeira] == 1) {
+                        contcadeira--;
+                    }
+                    if (contcadeira == 0) {
+                        contfileira--;
+                    }
+                }
+            }
         }
+
     }
 }
+
