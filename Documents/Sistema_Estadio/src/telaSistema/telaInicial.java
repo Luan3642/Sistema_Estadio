@@ -907,17 +907,23 @@ public class telaInicial extends javax.swing.JFrame {
     }
 
     public void verificacaoCadeiraProximaGramado() {
-
-        int contfileira = 25, contcadeira = 200;
+        
+        caixaTxtProxima.setText("");
         if (radioPrimeiroDia.isSelected() == true) {//selecionado primeiro dia
             if (comboSetor.getSelectedItem() == "Amarelo") {//selecionado combo amarelo
-                for (int x = 0 ; x < 5 ; x++ ) {//repetir busca 5 vezes
+                int contfileira = 25, contcadeira = 200;
+                for (int x = 0; x < 5; x++) {
                     if (setorAmareloD1[contfileira][contcadeira] == 0) {//verifica se o lugar está vazio
-                        caixaTxtProxima.setText(caixaTxtProxima.getText()+"Fileira "+contfileira+" Cadeira "+contcadeira+"\n");
-                        if (contcadeira == 0) {
-                            contfileira--;
-                        }
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira " 
+                                + contfileira + " Cadeira " + contcadeira + "\n");
                         contcadeira--;
+                    }else if (setorAmareloD1[contfileira][contcadeira] == 1) {
+                        contcadeira--;
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira " 
+                                + contfileira + " Cadeira " + contcadeira + "\n");
+                    }
+                    if (contcadeira == 0) {
+                    contfileira--;
                     }
                 }
             }
