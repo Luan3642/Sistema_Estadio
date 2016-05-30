@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public class telaInicial extends javax.swing.JFrame {
-    
+
     //Todos os arrays---------------------------------------------------
     //Dia do 1° jogo
     int setorAmareloD1[][] = new int[26][201];
@@ -21,30 +21,30 @@ public class telaInicial extends javax.swing.JFrame {
 
     //decimal format para o dinheiro--------------------------------------
     DecimalFormat df = new DecimalFormat("R$ #,##0.00");
-    
+
     //vari�vel total arrecadado------------------------------------------
-    double totalArrecadado = 0, totalArrecadado1dia=0, totalArrecadado2dia=0;
-    
+    double totalArrecadado = 0, totalArrecadado1dia = 0, totalArrecadado2dia = 0;
+
     //vari�vel total ingresos -------------------------------------------
     int tIngresos = 0, tIngressos1dia = 0, tIngressos2dia = 0;
-    
+
     //CONTAR QUAL O SETOR MAIS LOTADO-------------------------------------
-        //contador de setor dia 1
+    //contador de setor dia 1
     int contSetorAmarelo1 = 0, contSetorAzul1 = 0, contSetorBranco1 = 0, contSetorVerde1 = 0;
-        //contador de setor dia 2
+    //contador de setor dia 2
     int contSetorAmarelo2 = 0, contSetorAzul2 = 0, contSetorBranco2 = 0, contSetorVerde2 = 0;
-    
+
     //valor para o progressbar
     double porcentagemQueAdicionaProgres = 5;
-    
+
     //PADR�O DO NETBEANS ------------------------------------------------------
     public telaInicial() {
-       
+
         initComponents();
 
     }
     //-------------------------------------------------------------------------
-    
+
     //PADRA� DO NETBEANS ------------------------------------------------------
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -250,7 +250,6 @@ public class telaInicial extends javax.swing.JFrame {
         caixaTxtProxima.setEditable(false);
         caixaTxtProxima.setColumns(20);
         caixaTxtProxima.setRows(5);
-        caixaTxtProxima.setText("Fileira X Cadeira X\nFileira Y Cadeira X");
         jScrollPane1.setViewportView(caixaTxtProxima);
 
         layoutInutil4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -259,6 +258,11 @@ public class telaInicial extends javax.swing.JFrame {
 
         btnBuscarMaisProximo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnBuscarMaisProximo.setText("Buscar");
+        btnBuscarMaisProximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarMaisProximoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelSugestaoLayout = new javax.swing.GroupLayout(painelSugestao);
         painelSugestao.setLayout(painelSugestaoLayout);
@@ -539,38 +543,38 @@ public class telaInicial extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     //-------------------------------------------------------------------------
-    
+
     //BOT�O CONSULTAR DISPONIBILIDADE CLICADO----------------------------------------------
     private void btnConsultarDisponibilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarDisponibilidadeActionPerformed
 
         //limpa o jlabel valorIngresso e chama o m�todo consultandoDisponibilidade l� embaixo
         txtValorIngresso.setText("");
         consultandoDisponibilidade();
-        
+
     }//GEN-LAST:event_btnConsultarDisponibilidadeActionPerformed
 
     //BOT�O COMPRAR INGRESSO --------------------------------------------------------------
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
-        
+
         //se estiver escrito dispon�vel então soma mais um na vari�vel totalIngresos e 
         //chama o metodo la embaixo
         //aparece se a compra foi efetivada ou n�o
-        if("Disponível".equals(txtDisponibilidadeSN.getText())){
-            tIngresos+=1;            
+        if ("Disponível".equals(txtDisponibilidadeSN.getText())) {
+            tIngresos += 1;
             comprandoIngressso();
-            JOptionPane.showConfirmDialog(null,"Ingresso---------------\nCadeira: "+caixaCadeira.getText()+"\nFileira: "+caixaFileira.getText()+"\nSetor: "+comboSetor.getSelectedItem());
-        }else{
-            JOptionPane.showMessageDialog(null,"O lugar tem que estar Disponível");
+            JOptionPane.showConfirmDialog(null, "Ingresso---------------\nCadeira: " + caixaCadeira.getText() + "\nFileira: " + caixaFileira.getText() + "\nSetor: " + comboSetor.getSelectedItem());
+        } else {
+            JOptionPane.showMessageDialog(null, "O lugar tem que estar Disponível");
         }
 
-        if(radioPrimeiroDia.isSelected()==true){
+        if (radioPrimeiroDia.isSelected() == true) {
             radioSegundoDia.setEnabled(true);
             radioPrimeiroDia.setEnabled(true);
             comboSetor.setEnabled(true);
             caixaFileira.setEnabled(true);
             caixaCadeira.setEnabled(true);
-            atualizarBarradeProgresso1Dia(); 
-        }else{
+            atualizarBarradeProgresso1Dia();
+        } else {
             radioSegundoDia.setEnabled(true);
             radioPrimeiroDia.setEnabled(true);
             comboSetor.setEnabled(true);
@@ -578,14 +582,14 @@ public class telaInicial extends javax.swing.JFrame {
             caixaCadeira.setEnabled(true);
             atualizarBarradeProgresso2Dia();
         }
-        
+
         //limpa os campos para o usu�rio e escreve o valor arrecadado e quantidade de ingressos em todos os jpanel's
         txtSegundoJogoArrecadado.setText(df.format(totalArrecadado2dia));
         txtPrimeiroJogoArrecadado.setText(df.format(totalArrecadado1dia));
-        txtIngressosVendidosSegundoJogo.setText(""+tIngressos2dia);
-        txtIngressosVendidosPrimeiroJogo.setText(""+tIngressos1dia);
+        txtIngressosVendidosSegundoJogo.setText("" + tIngressos2dia);
+        txtIngressosVendidosPrimeiroJogo.setText("" + tIngressos1dia);
         txtTotalArrecadado.setText(df.format(totalArrecadado));
-        txtIngressosVendidos.setText(""+tIngresos);
+        txtIngressosVendidos.setText("" + tIngresos);
         txtValorIngresso.setText("");
         txtDisponibilidadeSN.setText("");
 
@@ -598,6 +602,10 @@ public class telaInicial extends javax.swing.JFrame {
     private void radioSegundoDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSegundoDiaActionPerformed
         atualizarBarradeProgresso2Dia();
     }//GEN-LAST:event_radioSegundoDiaActionPerformed
+
+    private void btnBuscarMaisProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMaisProximoActionPerformed
+        verificacaoCadeiraProximaGramado();
+    }//GEN-LAST:event_btnBuscarMaisProximoActionPerformed
 
     public static void main(String args[]) {
 
@@ -677,10 +685,10 @@ public class telaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel txtValorIngresso;
     // End of variables declaration//GEN-END:variables
     //----------------------------------------------------------------------------
-    
+
     // M�todo verifica se todos os campos s�o v�lidos -----------
     public void consultandoDisponibilidade() {
-               
+
         if (caixaCadeira.getText().isEmpty()) {
             txtDisponibilidadeSN.setText("Especifique a Cadeira");
         } else if (caixaFileira.getText().isEmpty()) {
@@ -689,9 +697,9 @@ public class telaInicial extends javax.swing.JFrame {
             txtDisponibilidadeSN.setText("Especifique o Setor");
         } else if (radioPrimeiroDia.isSelected() == false && radioSegundoDia.isSelected() == false) {
             txtDisponibilidadeSN.setText("Especifique o Dia");
-        } else if (Integer.parseInt(caixaCadeira.getText())>= 201||Integer.parseInt(caixaCadeira.getText())<=0) {
+        } else if (Integer.parseInt(caixaCadeira.getText()) >= 201 || Integer.parseInt(caixaCadeira.getText()) <= 0) {
             txtDisponibilidadeSN.setText("Cadeira não existe");
-        } else if (Integer.parseInt(caixaFileira.getText())>= 26||Integer.parseInt(caixaFileira.getText())<=0) {
+        } else if (Integer.parseInt(caixaFileira.getText()) >= 26 || Integer.parseInt(caixaFileira.getText()) <= 0) {
             txtDisponibilidadeSN.setText("Fileira não existe");
         } else {
             //SE TODOS OS CAMPOS ESTIVEREM PREENCHIDOES O PROGRAMA CAI AQUI...
@@ -712,7 +720,7 @@ public class telaInicial extends javax.swing.JFrame {
                 verificarDisponibilidadeDia2();
             }
         }
-        
+
     }
 
     private void verificarDisponibilidadeDia1() {
@@ -758,7 +766,7 @@ public class telaInicial extends javax.swing.JFrame {
             }
 
         }
-            //-----------------------------------------------------------------------
+        //-----------------------------------------------------------------------
 
     }
 
@@ -811,61 +819,61 @@ public class telaInicial extends javax.swing.JFrame {
 
     private void comprandoIngressso() {
 
-        if(radioPrimeiroDia.isSelected()== true){
-            
-            tIngressos1dia+=1;
-            if(comboSetor.getSelectedItem() == "Amarelo"){
+        if (radioPrimeiroDia.isSelected() == true) {
+
+            tIngressos1dia += 1;
+            if (comboSetor.getSelectedItem() == "Amarelo") {
                 setorAmareloD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
-                totalArrecadado+=25.00;
-                totalArrecadado1dia+=25.00;
-                contSetorAmarelo1+=porcentagemQueAdicionaProgres;
-            } else if(comboSetor.getSelectedItem() == "Azul"){
+                totalArrecadado += 25.00;
+                totalArrecadado1dia += 25.00;
+                contSetorAmarelo1 += porcentagemQueAdicionaProgres;
+            } else if (comboSetor.getSelectedItem() == "Azul") {
                 setorAzulD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
-                totalArrecadado+=25.00;
-                totalArrecadado1dia+=25.00;
-                contSetorAzul1+=porcentagemQueAdicionaProgres;
-            } else if(comboSetor.getSelectedItem() == "Branco"){
+                totalArrecadado += 25.00;
+                totalArrecadado1dia += 25.00;
+                contSetorAzul1 += porcentagemQueAdicionaProgres;
+            } else if (comboSetor.getSelectedItem() == "Branco") {
                 setorBrancoD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
-                totalArrecadado+=45.00;
-                totalArrecadado1dia+=45.00;
-                contSetorBranco1+=porcentagemQueAdicionaProgres;
-            } else if(comboSetor.getSelectedItem() == "Verde"){
+                totalArrecadado += 45.00;
+                totalArrecadado1dia += 45.00;
+                contSetorBranco1 += porcentagemQueAdicionaProgres;
+            } else if (comboSetor.getSelectedItem() == "Verde") {
                 setorVerdeD1[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
-                totalArrecadado+=45.00;
-                totalArrecadado1dia+=45.00;
-                contSetorVerde1+=porcentagemQueAdicionaProgres;
+                totalArrecadado += 45.00;
+                totalArrecadado1dia += 45.00;
+                contSetorVerde1 += porcentagemQueAdicionaProgres;
             }
-                
-        }else if (radioSegundoDia.isSelected()==true){
-            
-            tIngressos2dia+=1;
-            if(comboSetor.getSelectedItem() == "Amarelo"){
+
+        } else if (radioSegundoDia.isSelected() == true) {
+
+            tIngressos2dia += 1;
+            if (comboSetor.getSelectedItem() == "Amarelo") {
                 setorAmareloD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
-                totalArrecadado+=30.00;
-                totalArrecadado2dia+=30.00;
-                contSetorAmarelo2+=porcentagemQueAdicionaProgres;
-            } else if(comboSetor.getSelectedItem() == "Azul"){
+                totalArrecadado += 30.00;
+                totalArrecadado2dia += 30.00;
+                contSetorAmarelo2 += porcentagemQueAdicionaProgres;
+            } else if (comboSetor.getSelectedItem() == "Azul") {
                 setorAzulD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
-                totalArrecadado+=30.00;
-                totalArrecadado2dia+=30.00;
-                contSetorAzul2+=porcentagemQueAdicionaProgres;
-            } else if(comboSetor.getSelectedItem() == "Branco"){
+                totalArrecadado += 30.00;
+                totalArrecadado2dia += 30.00;
+                contSetorAzul2 += porcentagemQueAdicionaProgres;
+            } else if (comboSetor.getSelectedItem() == "Branco") {
                 setorBrancoD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
-                totalArrecadado+=50.00;
-                totalArrecadado2dia+=50.00;
-                contSetorBranco2+=porcentagemQueAdicionaProgres;
-            } else if(comboSetor.getSelectedItem() == "Verde"){
+                totalArrecadado += 50.00;
+                totalArrecadado2dia += 50.00;
+                contSetorBranco2 += porcentagemQueAdicionaProgres;
+            } else if (comboSetor.getSelectedItem() == "Verde") {
                 setorVerdeD2[Integer.parseInt(caixaFileira.getText())][Integer.parseInt(caixaCadeira.getText())] = 1;
-                totalArrecadado+=50.00;
-                totalArrecadado2dia+=50.00;
-                contSetorVerde2+=porcentagemQueAdicionaProgres;
+                totalArrecadado += 50.00;
+                totalArrecadado2dia += 50.00;
+                contSetorVerde2 += porcentagemQueAdicionaProgres;
             }
         }
-        
+
     }
-    
-    public void atualizarBarradeProgresso1Dia(){
-        
+
+    public void atualizarBarradeProgresso1Dia() {
+
         new Thread() {
             public void run() {
                 try {
@@ -878,11 +886,11 @@ public class telaInicial extends javax.swing.JFrame {
                 }
             }
         }.start();
-        
+
     }
-    
-    public void atualizarBarradeProgresso2Dia(){
-        
+
+    public void atualizarBarradeProgresso2Dia() {
+
         new Thread() {
             public void run() {
                 try {
@@ -895,18 +903,26 @@ public class telaInicial extends javax.swing.JFrame {
                 }
             }
         }.start();
-        
+
     }
-    
-    public void verificacaoCadeiraProximaGramado(){
-        
-        if (radioPrimeiroDia.isSelected()==true){
-            if(comboSetor.getSelectedItem()=="Amarelo"){
-                
-                //setorAmareloD1
+
+    public void verificacaoCadeiraProximaGramado() {
+
+        int contfileira = 25, contcadeira = 200;
+        if (radioPrimeiroDia.isSelected() == true) {//selecionado primeiro dia
+            if (comboSetor.getSelectedItem() == "Amarelo") {//selecionado combo amarelo
+                for (int x = 0 ; x < 5 ; x++ ) {//repetir busca 5 vezes
+                    if (setorAmareloD1[contfileira][contcadeira] == 0) {//verifica se o lugar está vazio
+                        caixaTxtProxima.setText(caixaTxtProxima.getText()+"Fileira "+contfileira+" Cadeira "+contcadeira+"\n");
+                        if (contcadeira == 0) {
+                            contfileira--;
+                        }
+                        contcadeira--;
+                    }
+                }
             }
-        }else if (radioPrimeiroDia.isSelected()==true){
-            
+        } else if (radioPrimeiroDia.isSelected() == true) {
+
         }
     }
 }
