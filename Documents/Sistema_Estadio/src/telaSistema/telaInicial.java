@@ -561,7 +561,7 @@ public class telaInicial extends javax.swing.JFrame {
         if ("Disponível".equals(txtDisponibilidadeSN.getText())) {
             tIngresos += 1;
             comprandoIngressso();
-            JOptionPane.showConfirmDialog(null, "Ingresso---------------\nCadeira: " + caixaCadeira.getText() + "\nFileira: " + caixaFileira.getText() + "\nSetor: " + comboSetor.getSelectedItem());
+            JOptionPane.showMessageDialog(null, "Ingresso---------------\nCadeira: " + caixaCadeira.getText() + "\nFileira: " + caixaFileira.getText() + "\nSetor: " + comboSetor.getSelectedItem());
         } else {
             JOptionPane.showMessageDialog(null, "O lugar tem que estar Disponível");
         }
