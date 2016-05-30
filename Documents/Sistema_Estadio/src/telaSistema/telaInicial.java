@@ -898,4 +898,15 @@ public class telaInicial extends javax.swing.JFrame {
         
     }
     
+    public void verificacaoCadeiraProximaGramado(){
+        
+        if (radioPrimeiroDia.isSelected()==true){
+            if(comboSetor.getSelectedItem()=="Amarelo"){
+                
+                //setorAmareloD1
+            }
+        }else if (radioPrimeiroDia.isSelected()==true){
+            
+        }
+    }
 }
