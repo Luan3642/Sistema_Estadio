@@ -702,20 +702,22 @@ public class telaInicial extends javax.swing.JFrame {
             txtDisponibilidadeSN.setText("Fileira não existe");
         } else //SE TODOS OS CAMPOS ESTIVEREM PREENCHIDOES O PROGRAMA CAI AQUI...
         //SE PRIMEIRO JOGO FOR SELECIONADO ENTÃO EXECUTA METODO 'verificarDisponibilidadeDia1' SE NÃO 'verificarDisponibilidadeDia2'
-        if (radioPrimeiroDia.isSelected() == true) {
-            radioSegundoDia.setEnabled(false);
-            radioPrimeiroDia.setEnabled(false);
-            comboSetor.setEnabled(false);
-            caixaFileira.setEnabled(false);
-            caixaCadeira.setEnabled(false);
-            verificarDisponibilidadeDia1();
-        } else {
-            radioSegundoDia.setEnabled(false);
-            radioPrimeiroDia.setEnabled(false);
-            comboSetor.setEnabled(false);
-            caixaFileira.setEnabled(false);
-            caixaCadeira.setEnabled(false);
-            verificarDisponibilidadeDia2();
+        {
+            if (radioPrimeiroDia.isSelected() == true) {
+                radioSegundoDia.setEnabled(false);
+                radioPrimeiroDia.setEnabled(false);
+                comboSetor.setEnabled(false);
+                caixaFileira.setEnabled(false);
+                caixaCadeira.setEnabled(false);
+                verificarDisponibilidadeDia1();
+            } else {
+                radioSegundoDia.setEnabled(false);
+                radioPrimeiroDia.setEnabled(false);
+                comboSetor.setEnabled(false);
+                caixaFileira.setEnabled(false);
+                caixaCadeira.setEnabled(false);
+                verificarDisponibilidadeDia2();
+            }
         }
 
     }
@@ -905,142 +907,178 @@ public class telaInicial extends javax.swing.JFrame {
 
     public void verificacaoCadeiraProximaGramado() {
 
-        caixaTxtProxima.setText("");
-        if (radioPrimeiroDia.isSelected() == true) {
-            if (comboSetor.getSelectedItem() == "Amarelo") {
-                int contfileira = 25, contcadeira = 200;
-                int contvezes = 0;
-                while (contvezes < 5) {
-                    if (setorAmareloD1[contfileira][contcadeira] == 0) {
-                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
+        caixaTxtProxima.setText("");//Limpar caixaTxtProxima
+        if (radioPrimeiroDia.isSelected() == true) {//Seleciona botão de primeiro dia
+            if (comboSetor.getSelectedItem() == "Amarelo") {//Seleciona setor amarelo
+                int contfileira = 1, contcadeira = 1, contvezes = 0;;//Variáveis cont
+                while (contvezes < 5) {//Estrutura de repetição para exibir 5 sugestões
+                    if (setorAmareloD1[contfileira][contcadeira] == 0) {//Verifica se o lugar está vazio
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "//Exibe a sugestão
                                 + contfileira + " Cadeira " + contcadeira + "\n");
-                        contcadeira--;
-                        contvezes++;
-                    } else if (setorAmareloD1[contfileira][contcadeira] == 1) {
-                        contcadeira--;
+                        contcadeira++;//Pula cont para a próxima cadeira
+                        contvezes++;//Adiciona 1 ao número de vezes que rodou o while
+                    } else if (setorAmareloD1[contfileira][contcadeira] == 1) {//Caso o lugar esteja ocupado
+                        contcadeira++;//Apenas adiciona 1 ao cont para pular para a próxima cadeira
                     }
-                    if (contcadeira == 0) {
-                        contfileira--;
+                    if (contcadeira == 201) {//Verifica se acabaram as cadeiras da fileira
+                        contcadeira = 1;//Volta o cont cadeira para 1
+                        contfileira++;//Pula para a próxima fileira
+                    }
+                    if (contfileira == 26) {//Verifica se acabaram as fileiras do setor
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");//Exibe mensagem que não há mais lugares nesse setor
+                        contvezes = 5;//Adiciona 5 ao contvezes para parar o while
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Azul") {
-                int contfileira = 25, contcadeira = 200;
+                int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
                 while (contvezes < 5) {
                     if (setorAzulD1[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
-                        contcadeira--;
+                        contcadeira++;
                         contvezes++;
                     } else if (setorAzulD1[contfileira][contcadeira] == 1) {
-                        contcadeira--;
+                        contcadeira++;
                     }
-                    if (contcadeira == 0) {
-                        contfileira--;
+                    if (contcadeira == 201) {
+                        contcadeira = 1;
+                        contfileira++;
+                    }
+                    if (contfileira == 26) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
+                        contvezes = 5;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Branco") {
-                int contfileira = 25, contcadeira = 200;
+                int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
                 while (contvezes < 5) {
                     if (setorBrancoD1[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
-                        contcadeira--;
+                        contcadeira++;
                         contvezes++;
                     } else if (setorBrancoD1[contfileira][contcadeira] == 1) {
-                        contcadeira--;
+                        contcadeira++;
                     }
-                    if (contcadeira == 0) {
-                        contfileira--;
+                    if (contcadeira == 201) {
+                        contcadeira = 1;
+                        contfileira++;
+                    }
+                    if (contfileira == 26) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
+                        contvezes = 5;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Verde") {
-                int contfileira = 25, contcadeira = 200;
+                int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
                 while (contvezes < 5) {
                     if (setorVerdeD1[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
-                        contcadeira--;
+                        contcadeira++;
                         contvezes++;
                     } else if (setorVerdeD1[contfileira][contcadeira] == 1) {
-                        contcadeira--;
+                        contcadeira++;
                     }
-                    if (contcadeira == 0) {
-                        contfileira--;
+                    if (contcadeira == 201) {
+                        contcadeira = 1;
+                        contfileira++;
+                    }
+                    if (contfileira == 26) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
+                        contvezes = 5;
                     }
                 }
             }
-
         } else if (radioSegundoDia.isSelected() == true) {
             if (comboSetor.getSelectedItem() == "Amarelo") {
-                int contfileira = 25, contcadeira = 200;
+                int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
                 while (contvezes < 5) {
                     if (setorAmareloD2[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
-                        contcadeira--;
+                        contcadeira++;
                         contvezes++;
                     } else if (setorAmareloD2[contfileira][contcadeira] == 1) {
-                        contcadeira--;
+                        contcadeira++;
                     }
-                    if (contcadeira == 0) {
-                        contfileira--;
+                    if (contcadeira == 201) {
+                        contcadeira = 1;
+                        contfileira++;
+                    }
+                    if (contfileira == 26) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
+                        contvezes = 5;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Azul") {
-                int contfileira = 25, contcadeira = 200;
+                int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
                 while (contvezes < 5) {
                     if (setorAzulD2[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
-                        contcadeira--;
+                        contcadeira++;
                         contvezes++;
                     } else if (setorAzulD2[contfileira][contcadeira] == 1) {
-                        contcadeira--;
+                        contcadeira++;
                     }
-                    if (contcadeira == 0) {
-                        contfileira--;
+                    if (contcadeira == 201) {
+                        contcadeira = 1;
+                        contfileira++;
+                    }
+                    if (contfileira == 26) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
+                        contvezes = 5;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Branco") {
-                int contfileira = 25, contcadeira = 200;
+                int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
                 while (contvezes < 5) {
                     if (setorBrancoD2[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
-                        contcadeira--;
+                        contcadeira++;
                         contvezes++;
                     } else if (setorBrancoD2[contfileira][contcadeira] == 1) {
-                        contcadeira--;
+                        contcadeira++;
                     }
-                    if (contcadeira == 0) {
-                        contfileira--;
+                    if (contcadeira == 201) {
+                        contcadeira = 1;
+                        contfileira++;
+                    }
+                    if (contfileira == 26) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
+                        contvezes = 5;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Verde") {
-                int contfileira = 25, contcadeira = 200;
+                int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
                 while (contvezes < 5) {
                     if (setorVerdeD2[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
-                        contcadeira--;
+                        contcadeira++;
                         contvezes++;
                     } else if (setorVerdeD2[contfileira][contcadeira] == 1) {
-                        contcadeira--;
+                        contcadeira++;
                     }
-                    if (contcadeira == 0) {
-                        contfileira--;
+                    if (contcadeira == 201) {
+                        contcadeira = 1;
+                        contfileira++;
+                    }
+                    if (contfileira == 26) {
+                        caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
+                        contvezes = 5;
                     }
                 }
             }
         }
-
     }
 }
-
