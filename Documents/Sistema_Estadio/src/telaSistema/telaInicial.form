@@ -96,14 +96,14 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="painelSugestao" min="-2" max="-2" attributes="0"/>
-                      <Component id="painelPrimeiroJogo" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="painelPrimeiroJogo" max="32767" attributes="0"/>
+                      <Component id="painelSugestao" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="painelSegundoJogo" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="painelLotacao" max="32767" attributes="0"/>
+                      <Component id="painelSegundoJogo" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -134,7 +134,7 @@
                           <Group type="102" attributes="0">
                               <Component id="layoutInutil" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtValorIngresso" pref="86" max="32767" attributes="0"/>
+                              <Component id="txtValorIngresso" pref="83" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -295,7 +295,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Dias">
+                <TitledBorder title="Jogos">
                   <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder/>
                   </Border>
@@ -335,7 +335,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Primeiro Dia"/>
+                <Property name="text" type="java.lang.String" value="Primeiro jogo"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="radioPrimeiroDiaMousePressed"/>
@@ -346,7 +346,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Segundo Dia"/>
+                <Property name="text" type="java.lang.String" value="Segundo jogo"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioSegundoDiaActionPerformed"/>
@@ -394,10 +394,10 @@
                       <Component id="layoutInutil4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnBuscarMaisProximo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="124" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -426,7 +426,7 @@
                   <Font name="Arial" size="11" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Cadeira Mais Pr&#xf3;xima do Gramado :"/>
+                <Property name="text" type="java.lang.String" value="Cadeiras mais pr&#xf3;ximas do gramado :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarMaisProximo">
@@ -507,7 +507,7 @@
                           <Component id="layoutInutil8" min="-2" max="-2" attributes="0"/>
                           <Component id="progresVerde" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -663,7 +663,7 @@
                           <Component id="txtIngressosVendidosPrimeiroJogo" max="32767" attributes="0"/>
                           <Component id="txtPrimeiroJogoArrecadado" pref="64" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="52" max="32767" attributes="0"/>
+                      <EmptySpace pref="49" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

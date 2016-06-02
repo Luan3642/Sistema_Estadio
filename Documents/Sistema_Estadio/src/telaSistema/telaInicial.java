@@ -125,7 +125,7 @@ public class telaInicial extends javax.swing.JFrame {
                     .addGroup(painelCompraLayout.createSequentialGroup()
                         .addComponent(layoutInutil)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorIngresso, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)))
+                        .addComponent(txtValorIngresso, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         painelCompraLayout.setVerticalGroup(
@@ -205,10 +205,10 @@ public class telaInicial extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        painelDias.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Dias"));
+        painelDias.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Jogos"));
 
         buttonGroup1.add(radioPrimeiroDia);
-        radioPrimeiroDia.setText("Primeiro Dia");
+        radioPrimeiroDia.setText("Primeiro jogo");
         radioPrimeiroDia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 radioPrimeiroDiaMousePressed(evt);
@@ -216,7 +216,7 @@ public class telaInicial extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(radioSegundoDia);
-        radioSegundoDia.setText("Segundo Dia");
+        radioSegundoDia.setText("Segundo jogo");
         radioSegundoDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioSegundoDiaActionPerformed(evt);
@@ -253,7 +253,7 @@ public class telaInicial extends javax.swing.JFrame {
 
         layoutInutil4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         layoutInutil4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        layoutInutil4.setText("Cadeira Mais Próxima do Gramado :");
+        layoutInutil4.setText("Cadeiras mais próximas do gramado :");
 
         btnBuscarMaisProximo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnBuscarMaisProximo.setText("Buscar");
@@ -286,9 +286,9 @@ public class telaInicial extends javax.swing.JFrame {
                 .addComponent(layoutInutil4)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarMaisProximo)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(painelSugestaoLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -355,7 +355,7 @@ public class telaInicial extends javax.swing.JFrame {
                 .addGroup(painelLotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(layoutInutil8)
                     .addComponent(progresVerde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         painelArrecadacaoDoisJogos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Total de arrecadação dos dois jogos"));
@@ -420,7 +420,7 @@ public class telaInicial extends javax.swing.JFrame {
                 .addGroup(painelPrimeiroJogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtIngressosVendidosPrimeiroJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtPrimeiroJogoArrecadado, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         painelPrimeiroJogoLayout.setVerticalGroup(
             painelPrimeiroJogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,13 +511,13 @@ public class telaInicial extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(painelArrecadacaoDoisJogos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(painelSugestao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(painelPrimeiroJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(painelSegundoJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(painelLotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(painelPrimeiroJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painelSugestao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(painelLotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painelSegundoJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -559,13 +559,16 @@ public class telaInicial extends javax.swing.JFrame {
         //chama o metodo la embaixo
         //aparece se a compra foi efetivada ou n�o
         if ("Disponível".equals(txtDisponibilidadeSN.getText())) {
-            tIngresos += 1;
-            comprandoIngressso();
-            JOptionPane.showMessageDialog(null, "Ingresso---------------\nCadeira: " + caixaCadeira.getText() + "\nFileira: " + caixaFileira.getText() + "\nSetor: " + comboSetor.getSelectedItem());
+
+            int resposta = JOptionPane.showConfirmDialog(null, "Ingresso\nCadeira: " + caixaCadeira.getText()
+                    + "\nFileira: " + caixaFileira.getText() + "\nSetor: " + comboSetor.getSelectedItem() + "\nDeseja confirmar a compra?");
+            if (resposta == JOptionPane.YES_OPTION) {
+                tIngresos += 1;
+                comprandoIngressso();
+            }
         } else {
             JOptionPane.showMessageDialog(null, "O lugar tem que estar Disponível");
         }
-
         if (radioPrimeiroDia.isSelected() == true) {
             radioSegundoDia.setEnabled(true);
             radioPrimeiroDia.setEnabled(true);
@@ -702,8 +705,7 @@ public class telaInicial extends javax.swing.JFrame {
             txtDisponibilidadeSN.setText("Fileira não existe");
         } else //SE TODOS OS CAMPOS ESTIVEREM PREENCHIDOES O PROGRAMA CAI AQUI...
         //SE PRIMEIRO JOGO FOR SELECIONADO ENTÃO EXECUTA METODO 'verificarDisponibilidadeDia1' SE NÃO 'verificarDisponibilidadeDia2'
-        {
-            if (radioPrimeiroDia.isSelected() == true) {
+         if (radioPrimeiroDia.isSelected() == true) {
                 radioSegundoDia.setEnabled(false);
                 radioPrimeiroDia.setEnabled(false);
                 comboSetor.setEnabled(false);
@@ -718,7 +720,6 @@ public class telaInicial extends javax.swing.JFrame {
                 caixaCadeira.setEnabled(false);
                 verificarDisponibilidadeDia2();
             }
-        }
 
     }
 
