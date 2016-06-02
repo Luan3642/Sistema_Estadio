@@ -288,7 +288,7 @@ public class telaInicial extends javax.swing.JFrame {
                 .addComponent(btnBuscarMaisProximo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(painelSugestaoLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
@@ -394,7 +394,7 @@ public class telaInicial extends javax.swing.JFrame {
                 .addGroup(painelArrecadacaoDoisJogosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(layoutInutil12)
                     .addComponent(txtIngressosVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         painelPrimeiroJogo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Primeiro jogo"));
@@ -433,7 +433,7 @@ public class telaInicial extends javax.swing.JFrame {
                 .addGroup(painelPrimeiroJogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(layoutInutil14)
                     .addComponent(txtIngressosVendidosPrimeiroJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         painelSegundoJogo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Segundo jogo"));
@@ -500,21 +500,18 @@ public class telaInicial extends javax.swing.JFrame {
         painelPrincipalLayout.setVerticalGroup(
             painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelPrincipalLayout.createSequentialGroup()
-                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelPrincipalLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(painelDias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(painelCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(painelLugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelPrincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(painelArrecadacaoDoisJogos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(painelDias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(painelCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(painelLugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(painelArrecadacaoDoisJogos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(painelPrimeiroJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(painelSugestao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(painelLotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(painelSegundoJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -567,33 +564,37 @@ public class telaInicial extends javax.swing.JFrame {
                 comprandoIngressso();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "O lugar tem que estar Disponível");
-        }
-        if (radioPrimeiroDia.isSelected() == true) {
-            radioSegundoDia.setEnabled(true);
-            radioPrimeiroDia.setEnabled(true);
-            comboSetor.setEnabled(true);
-            caixaFileira.setEnabled(true);
-            caixaCadeira.setEnabled(true);
-            atualizarBarradeProgresso1Dia();
-        } else {
-            radioSegundoDia.setEnabled(true);
-            radioPrimeiroDia.setEnabled(true);
-            comboSetor.setEnabled(true);
-            caixaFileira.setEnabled(true);
-            caixaCadeira.setEnabled(true);
-            atualizarBarradeProgresso2Dia();
-        }
+            if (txtDisponibilidadeSN.getText() == "") {
+                JOptionPane.showMessageDialog(null, "Você deve verificar a disponibilidade.");
+            } else {
+                JOptionPane.showMessageDialog(null, "O lugar tem que estar Disponível");
+            }
+            }
+            if (radioPrimeiroDia.isSelected() == true) {
+                radioSegundoDia.setEnabled(true);
+                radioPrimeiroDia.setEnabled(true);
+                comboSetor.setEnabled(true);
+                caixaFileira.setEnabled(true);
+                caixaCadeira.setEnabled(true);
+                atualizarBarradeProgresso1Dia();
+            } else {
+                radioSegundoDia.setEnabled(true);
+                radioPrimeiroDia.setEnabled(true);
+                comboSetor.setEnabled(true);
+                caixaFileira.setEnabled(true);
+                caixaCadeira.setEnabled(true);
+                atualizarBarradeProgresso2Dia();
+            }
 
-        //limpa os campos para o usu�rio e escreve o valor arrecadado e quantidade de ingressos em todos os jpanel's
-        txtSegundoJogoArrecadado.setText(df.format(totalArrecadado2dia));
-        txtPrimeiroJogoArrecadado.setText(df.format(totalArrecadado1dia));
-        txtIngressosVendidosSegundoJogo.setText("" + tIngressos2dia);
-        txtIngressosVendidosPrimeiroJogo.setText("" + tIngressos1dia);
-        txtTotalArrecadado.setText(df.format(totalArrecadado));
-        txtIngressosVendidos.setText("" + tIngresos);
-        txtValorIngresso.setText("");
-        txtDisponibilidadeSN.setText("");
+            //limpa os campos para o usu�rio e escreve o valor arrecadado e quantidade de ingressos em todos os jpanel's
+            txtSegundoJogoArrecadado.setText(df.format(totalArrecadado2dia));
+            txtPrimeiroJogoArrecadado.setText(df.format(totalArrecadado1dia));
+            txtIngressosVendidosSegundoJogo.setText("" + tIngressos2dia);
+            txtIngressosVendidosPrimeiroJogo.setText("" + tIngressos1dia);
+            txtTotalArrecadado.setText(df.format(totalArrecadado));
+            txtIngressosVendidos.setText("" + tIngresos);
+            txtValorIngresso.setText("");
+            txtDisponibilidadeSN.setText("");
 
     }//GEN-LAST:event_btnComprarActionPerformed
 
@@ -705,7 +706,8 @@ public class telaInicial extends javax.swing.JFrame {
             txtDisponibilidadeSN.setText("Fileira não existe");
         } else //SE TODOS OS CAMPOS ESTIVEREM PREENCHIDOES O PROGRAMA CAI AQUI...
         //SE PRIMEIRO JOGO FOR SELECIONADO ENTÃO EXECUTA METODO 'verificarDisponibilidadeDia1' SE NÃO 'verificarDisponibilidadeDia2'
-         if (radioPrimeiroDia.isSelected() == true) {
+        {
+            if (radioPrimeiroDia.isSelected() == true) {
                 radioSegundoDia.setEnabled(false);
                 radioPrimeiroDia.setEnabled(false);
                 comboSetor.setEnabled(false);
@@ -720,6 +722,7 @@ public class telaInicial extends javax.swing.JFrame {
                 caixaCadeira.setEnabled(false);
                 verificarDisponibilidadeDia2();
             }
+        }
 
     }
 

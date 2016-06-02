@@ -81,26 +81,21 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="painelDias" max="32767" attributes="0"/>
-                              <Component id="painelCompra" alignment="0" max="32767" attributes="0"/>
-                              <Component id="painelLugar" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="painelDias" max="32767" attributes="0"/>
+                          <Component id="painelCompra" alignment="0" max="32767" attributes="0"/>
+                          <Component id="painelLugar" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="painelArrecadacaoDoisJogos" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="painelArrecadacaoDoisJogos" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="painelPrimeiroJogo" max="32767" attributes="0"/>
                       <Component id="painelSugestao" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="painelLotacao" max="32767" attributes="0"/>
                       <Component id="painelSegundoJogo" max="32767" attributes="0"/>
@@ -397,7 +392,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" pref="124" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -608,7 +603,7 @@
                           <Component id="layoutInutil12" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtIngressosVendidos" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -680,7 +675,7 @@
                           <Component id="layoutInutil14" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtIngressosVendidosPrimeiroJogo" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
