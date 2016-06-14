@@ -557,8 +557,8 @@ public class telaInicial extends javax.swing.JFrame {
         //aparece se a compra foi efetivada ou n�o
         if ("Disponível".equals(txtDisponibilidadeSN.getText())) {
 
-            int resposta = JOptionPane.showConfirmDialog(null, "Ingresso\nCadeira: " + caixaCadeira.getText()
-                    + "\nFileira: " + caixaFileira.getText() + "\nSetor: " + comboSetor.getSelectedItem() + "\nDeseja confirmar a compra?");
+            int resposta = JOptionPane.showConfirmDialog(this,("Ingresso\nCadeira: " + caixaCadeira.getText()
+                    + "\nFileira: " + caixaFileira.getText() + "\nSetor: " + comboSetor.getSelectedItem() + "\nDeseja confirmar a compra?"));
             if (resposta == JOptionPane.YES_OPTION) {
                 tIngresos += 1;
                 comprandoIngressso();

@@ -1,6 +1,7 @@
 package telaSistema;
 
 
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 public class SenhaLogin extends javax.swing.JFrame {
@@ -24,10 +25,10 @@ public class SenhaLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         SHOW = new javax.swing.JRadioButton();
         SEND = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        setType(java.awt.Window.Type.UTILITY);
         getContentPane().setLayout(null);
 
         jDesktopPane1.setOpaque(false);
@@ -35,12 +36,6 @@ public class SenhaLogin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("LOGIN");
-
-        PASSWORD.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                PASSWORDKeyPressed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -56,18 +51,16 @@ public class SenhaLogin extends javax.swing.JFrame {
 
         SEND.setForeground(new java.awt.Color(51, 51, 51));
         SEND.setText("SEND");
-        SEND.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SENDActionPerformed(evt);
+        SEND.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SENDMouseClicked(evt);
             }
         });
         SEND.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                SENDKeyPressed(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SENDKeyTyped(evt);
             }
         });
-
-        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -90,9 +83,8 @@ public class SenhaLogin extends javax.swing.JFrame {
                         .addGap(113, 113, 113)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PASSWORD, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(87, Short.MAX_VALUE))
+                            .addComponent(PASSWORD, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,9 +97,7 @@ public class SenhaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PASSWORD, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SEND, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SHOW))
@@ -119,7 +109,6 @@ public class SenhaLogin extends javax.swing.JFrame {
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(SHOW, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(SEND, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jDesktopPane1);
         jDesktopPane1.setBounds(0, 0, 440, 350);
@@ -127,14 +116,6 @@ public class SenhaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void SENDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SENDActionPerformed
-        
-        metodoEntrar();
-       
-        jLabel3.setText("usuario nao cadastrado");
-
-    }//GEN-LAST:event_SENDActionPerformed
-
     private void SHOWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SHOWActionPerformed
         
         if(SHOW.isSelected()== true){
@@ -145,17 +126,13 @@ public class SenhaLogin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_SHOWActionPerformed
 
-    private void SENDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SENDKeyPressed
+    private void SENDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SENDMouseClicked
         metodoEntrar();
-       
-        jLabel3.setText("usuario nao cadastrado");
-    }//GEN-LAST:event_SENDKeyPressed
+    }//GEN-LAST:event_SENDMouseClicked
 
-    private void PASSWORDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PASSWORDKeyPressed
+    private void SENDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SENDKeyTyped
         metodoEntrar();
-       
-        
-    }//GEN-LAST:event_PASSWORDKeyPressed
+    }//GEN-LAST:event_SENDKeyTyped
 
   
     public static void main(String args[]) {
@@ -198,7 +175,6 @@ public class SenhaLogin extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
     private void metodoEntrar() {
@@ -207,20 +183,32 @@ public class SenhaLogin extends javax.swing.JFrame {
             chama.setVisible(true);
             this.setVisible(false);
         }
-         if("osvaldo123".equalsIgnoreCase(PASSWORD.getText())&&"osvaldo".equalsIgnoreCase(LOGIN.getText())){
+        else if("osvaldo123".equalsIgnoreCase(PASSWORD.getText())&&"osvaldo".equalsIgnoreCase(LOGIN.getText())){
             chama.setVisible(true);
             this.setVisible(false);
         }
-         if("caetano123".equalsIgnoreCase(PASSWORD.getText())&&"caetano".equalsIgnoreCase(LOGIN.getText())){
+        else if("caetano123".equalsIgnoreCase(PASSWORD.getText())&&"caetano".equalsIgnoreCase(LOGIN.getText())){
             chama.setVisible(true);
             this.setVisible(false);
+            
+        }
+        else if("christian123".equalsIgnoreCase(PASSWORD.getText())&&"christian".equalsIgnoreCase(LOGIN.getText())){
+            chama.setVisible(true);
+            this.setVisible(false);
+            
+        }
+        else if ("luan3642".equalsIgnoreCase(PASSWORD.getText())&&"luan".equalsIgnoreCase(LOGIN.getText())){
+            chama.setVisible(true);
+            this.setVisible(false);
+        }
+        else if("leandro123".equalsIgnoreCase(PASSWORD.getText())&&"leandro".equalsIgnoreCase(LOGIN.getText())){
+            chama.setVisible(true);
+            this.setVisible(false);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Acesso negado");
+        }
         
-        }
-         if("leandro123".equalsIgnoreCase(PASSWORD.getText())&&"leandro".equalsIgnoreCase(LOGIN.getText())){
-            chama.setVisible(true);
-            this.setVisible(false);
-        }
-         
     }
     
 }
