@@ -1,5 +1,6 @@
 package telaSistema;
 
+import java.awt.Toolkit;
 import static java.lang.Thread.sleep;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
@@ -41,6 +42,7 @@ public class telaInicial extends javax.swing.JFrame {
     public telaInicial() {
 
         initComponents();
+        setIcon();
 
     }
     //-------------------------------------------------------------------------
@@ -1085,4 +1087,11 @@ public class telaInicial extends javax.swing.JFrame {
             }
         }
     }
+
+    private void setIcon() {
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Iconep.png")));
+    
+    }
+    
 }
