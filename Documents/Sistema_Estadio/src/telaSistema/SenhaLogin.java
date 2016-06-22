@@ -227,6 +227,10 @@ public class SenhaLogin extends javax.swing.JFrame {
             chama.setVisible(true);
             this.setVisible(false);
         }
+        else if("teste123".equalsIgnoreCase(PASSWORD.getText())&&"teste".equalsIgnoreCase(LOGIN.getText())){
+            chama.setVisible(true);
+            this.setVisible(false);
+        }
         else {
             JOptionPane.showMessageDialog(null, "Acesso negado");
         }

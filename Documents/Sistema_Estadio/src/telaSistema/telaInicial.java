@@ -913,11 +913,13 @@ public class telaInicial extends javax.swing.JFrame {
 
     public void verificacaoCadeiraProximaGramado() {
 
+        
+        int sugest = 10; //Número de sugestoes
         caixaTxtProxima.setText("");//Limpar caixaTxtProxima
         if (radioPrimeiroDia.isSelected() == true) {//Seleciona botão de primeiro dia
             if (comboSetor.getSelectedItem() == "Amarelo") {//Seleciona setor amarelo
-                int contfileira = 1, contcadeira = 1, contvezes = 0;;//Variáveis cont
-                while (contvezes < 5) {//Estrutura de repetição para exibir 5 sugestões
+                int contfileira = 1, contcadeira = 1, contvezes = 0;//Variáveis cont
+                while (contvezes < sugest) {//Estrutura de repetição para exibir 5 sugestões
                     if (setorAmareloD1[contfileira][contcadeira] == 0) {//Verifica se o lugar está vazio
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "//Exibe a sugestão
                                 + contfileira + " Cadeira " + contcadeira + "\n");
@@ -932,13 +934,13 @@ public class telaInicial extends javax.swing.JFrame {
                     }
                     if (contfileira == 26) {//Verifica se acabaram as fileiras do setor
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");//Exibe mensagem que não há mais lugares nesse setor
-                        contvezes = 5;//Adiciona 5 ao contvezes para parar o while
+                        contvezes = sugest;//Adiciona o numero de sugestões ao contvezes para parar o while
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Azul") {
                 int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
-                while (contvezes < 5) {
+                while (contvezes < sugest) {
                     if (setorAzulD1[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
@@ -953,13 +955,13 @@ public class telaInicial extends javax.swing.JFrame {
                     }
                     if (contfileira == 26) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
-                        contvezes = 5;
+                        contvezes = sugest;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Branco") {
                 int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
-                while (contvezes < 5) {
+                while (contvezes < sugest) {
                     if (setorBrancoD1[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
@@ -974,13 +976,13 @@ public class telaInicial extends javax.swing.JFrame {
                     }
                     if (contfileira == 26) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
-                        contvezes = 5;
+                        contvezes = sugest;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Verde") {
                 int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
-                while (contvezes < 5) {
+                while (contvezes < sugest) {
                     if (setorVerdeD1[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
@@ -995,7 +997,7 @@ public class telaInicial extends javax.swing.JFrame {
                     }
                     if (contfileira == 26) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
-                        contvezes = 5;
+                        contvezes = sugest;
                     }
                 }
             }
@@ -1003,7 +1005,7 @@ public class telaInicial extends javax.swing.JFrame {
             if (comboSetor.getSelectedItem() == "Amarelo") {
                 int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
-                while (contvezes < 5) {
+                while (contvezes < sugest) {
                     if (setorAmareloD2[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
@@ -1018,13 +1020,13 @@ public class telaInicial extends javax.swing.JFrame {
                     }
                     if (contfileira == 26) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
-                        contvezes = 5;
+                        contvezes = sugest;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Azul") {
                 int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
-                while (contvezes < 5) {
+                while (contvezes < sugest) {
                     if (setorAzulD2[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
@@ -1039,13 +1041,13 @@ public class telaInicial extends javax.swing.JFrame {
                     }
                     if (contfileira == 26) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
-                        contvezes = 5;
+                        contvezes = sugest;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Branco") {
                 int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
-                while (contvezes < 5) {
+                while (contvezes < sugest) {
                     if (setorBrancoD2[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
@@ -1060,13 +1062,13 @@ public class telaInicial extends javax.swing.JFrame {
                     }
                     if (contfileira == 26) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
-                        contvezes = 5;
+                        contvezes = sugest;
                     }
                 }
             } else if (comboSetor.getSelectedItem() == "Verde") {
                 int contfileira = 1, contcadeira = 1;
                 int contvezes = 0;
-                while (contvezes < 5) {
+                while (contvezes < sugest) {
                     if (setorVerdeD2[contfileira][contcadeira] == 0) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Fileira "
                                 + contfileira + " Cadeira " + contcadeira + "\n");
@@ -1081,7 +1083,7 @@ public class telaInicial extends javax.swing.JFrame {
                     }
                     if (contfileira == 26) {
                         caixaTxtProxima.setText(caixaTxtProxima.getText() + "Não há mais lugares disponíveis.");
-                        contvezes = 5;
+                        contvezes = sugest;
                     }
                 }
             }
